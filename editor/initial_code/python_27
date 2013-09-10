@@ -1,11 +1,9 @@
-def checkio(a, b):
-    """
-        sums two passed arguments
-    """
-    return None
+def checkio(text):
+
+    return 'a'
 
 #These "asserts" using only for self-checking and not necessary for auto-testing
 if __name__ == '__main__':
-    assert checkio(3, 2) == 5
-    assert checkio(5, 7) == 12
-    print('Done')
+    assert checkio(u"Hello World!") == "l", "Hello test"
+    assert checkio(u"How do you do?") == "o", "O is most wanted"
+    assert checkio(u"One") == "e", "All letter only once."
