@@ -34,8 +34,10 @@
 .animation-content{
     background-color: #dfe8f7;
     color: #696969;
-    font-family: verdana;
+    font-family: Verdana, Arial, sans-serif;
     font-size: 15px;
+    width: 90%;
+
 }
 
 .animation-content .call,
@@ -50,11 +52,30 @@
     letter-spacing: 0.7px;
     word-break: break-word;
     white-space: pre-wrap;
+
+
 }
 
 .animation-content .error{
     color: #de0202;
     border-color: #de0202;
+}
+
+.animation-content .explanation {
+    font-size: 16px;
+    font-family: Verdana, Arial, sans-serif;
+    color: #294270;
+    text-align: center;
+    white-space: pre-wrap;
+    font-weight: bold;
+    margin: 10px auto 10px auto;
+    word-break: break-word;
+    padding: 0 10px 0 10px;
+    /*width: 90%;*/
+}
+
+.animation-content .explanation span.mwl {
+    color: #F0801A;
 }
 
 .tryit-content {
