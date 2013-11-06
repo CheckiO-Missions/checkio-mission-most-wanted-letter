@@ -76,11 +76,56 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
             //Dont change the code before it
 
             var canvas = new MWLAnimation();
-            canvas.createExplanation($content.find(".explanation"), checkioInput, rightResult);
+            canvas.createExplanation($content.find(".explanation"), checkioInput, rightResult, true);
 
 
             this_e.setAnimationHeight($content.height() + 60);
 
+        });
+
+
+        var $tryit;
+        var tCanvas;
+        var inText;
+        var $textInput;
+        var $textResult;
+
+        ext.set_console_process_ret(function (this_e, ret) {
+            if (typeof(ret) === 'string') {
+                ret = ret.replace(/\'/g, "");
+            }
+            var htmlText;
+            if (typeof ret === "string" && ret.length === 1) {
+                htmlText = tCanvas.processText(inText, ret);
+            }
+            else {
+                htmlText = inText;
+            }
+            $textResult.html(htmlText);
+            console.log(htmlText);
+            $textResult.removeClass("invisible");
+            $textInput.addClass("invisible");
+            $tryit.find(".checkio-result").html("Result<br>" + JSON.stringify(ret));
+        });
+
+        ext.set_generate_animation_panel(function (this_e) {
+
+            $tryit = $(this_e.setHtmlTryIt(ext.get_template('tryit')));
+            tCanvas = new MWLAnimation();
+            $textInput = $tryit.find(".text-input");
+            $textResult = $tryit.find(".text-result");
+
+            $textResult.click(function() {
+                $textResult.toggleClass("invisible");
+                $textInput.toggleClass("invisible");
+            });
+
+            $tryit.find(".bn-check").click(function (e) {
+                inText = $textInput.val();
+                this_e.sendToConsoleCheckiO(inText);
+                e.stopPropagation();
+                return false;
+            });
         });
 
         function MWLAnimation() {
@@ -106,10 +151,11 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
             var explDom;
             var htmlText;
 
-            this.createExplanation = function(dom, text, mwl) {
+            this.createExplanation = function(dom, text, mwl, prefix) {
 
                 explDom = dom;
-                explDom.html('Input<br>"' + thisVar.processText(text, mwl) + '"');
+                var res = (prefix ? 'Input<br>' : "") + '"' + thisVar.processText(text, mwl) + '"';
+                explDom.html(res);
             };
 
             this.processText = function(text, mwl) {

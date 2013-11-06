@@ -87,6 +87,9 @@
     text-align: center;
     vertical-align: top;
     padding: 3px;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 15px;
+    color: #294270;
 }
 
 /*it for firefox*/
@@ -98,7 +101,7 @@
     font-size: 16px;
     text-align: center;
     color: #294270;
-    width: 160px;
+    /*width: 160px;*/
 }
 
 .tryit-content .btn {
@@ -146,7 +149,7 @@ fieldset[disabled] .btn {
     box-shadow: none;
 }
 
-.tryit-content input[type="text"],
+.tryit-content textarea,
 .tryit-content input[type="number"]
 {
     display: inline-block;
@@ -165,7 +168,7 @@ fieldset[disabled] .btn {
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
-.tryit-content input[type="text"]:focus,
+.tryit-content textarea:focus,
 .tryit-content input[type="number"]:focus{
     border-color: rgba(82, 168, 236, 0.8);
     outline: 0;
@@ -179,5 +182,40 @@ fieldset[disabled] .btn {
     background-color: #eeeeee;
 }
 
-/* Your CSS */
-/*          */
+.tryit-content .text-input,
+.tryit-content .text-result
+{
+    width: 85%;
+    height: 100px;
+    font-weight: bold;
+    color: #294270;
+    font-size: 15px;
+    margin: 5px auto 10px auto;
+    text-align: left;
+}
+
+.tryit-content {
+    width: 100%;
+}
+
+.tryit-content .text-result
+{
+    padding: 5px 6px;
+    border: #737370 1px solid;
+    border-radius: 3px;
+    display: block;
+
+    overflow: auto;
+}
+
+.tryit-content .tool {
+    width: 100%;
+}
+
+.tryit-content .invisible {
+    display: none;
+}
+
+.tryit-content span.mwl {
+    color: #F0801A;
+}
