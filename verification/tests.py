@@ -25,6 +25,11 @@ TESTS = {
             "input": "Oops!",
             "answer": "o"
         },
+        {
+            "input": "AAaooo!!!!",
+            "answer": "a"
+        },
+
 
     ],
     "2. Basics": [
