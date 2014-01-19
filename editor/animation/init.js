@@ -38,6 +38,8 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
                 console.log("data is undefined");
                 return false;
             }
+
+
             if (data.error) {
                 $content.find('.call').html('Fail: checkio(' + ext.JSON.encode(data.in) + ')');
                 $content.find('.output').html(data.error.replace(/\n/g, ","));
@@ -56,11 +58,13 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
             var result = data.ext["result"];
             var result_addon = data.ext["result_addon"];
 
+            $content.find('.call').html('Fail: checkio(' + ext.JSON.encode(data.in) + ')');
+
 
             //if you need additional info from tests (if exists)
-            var explanation = data.ext["explanation"];
 
             $content.find('.output').html('&nbsp;Your result:&nbsp;' + ext.JSON.encode(userResult));
+            $content.find('.call').remove();
 
             if (!result) {
 //                $content.find('.call').html('Fail: checkio(' + ext.JSON.encode(checkioInput) + ')');
@@ -72,6 +76,7 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
             else {
 //                $content.find('.call').html('Pass: checkio(' + ext.JSON.encode(checkioInput) + ')');
                 $content.find('.answer').remove();
+
             }
             //Dont change the code before it
 
@@ -115,7 +120,7 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
             $textInput = $tryit.find(".text-input");
             $textResult = $tryit.find(".text-result");
 
-            $textResult.click(function() {
+            $textResult.click(function () {
                 $textResult.toggleClass("invisible");
                 $textInput.toggleClass("invisible");
             });
@@ -151,14 +156,14 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
             var explDom;
             var htmlText;
 
-            this.createExplanation = function(dom, text, mwl, prefix) {
+            this.createExplanation = function (dom, text, mwl, prefix) {
 
                 explDom = dom;
                 var res = (prefix ? 'Input<br>' : "") + '"' + thisVar.processText(text, mwl) + '"';
                 explDom.html(res);
             };
 
-            this.processText = function(text, mwl) {
+            this.processText = function (text, mwl) {
                 mwl = mwl.toLowerCase();
                 var upperMwl = mwl.toUpperCase();
                 htmlText = "";
