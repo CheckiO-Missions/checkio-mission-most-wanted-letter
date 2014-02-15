@@ -1,10 +1,17 @@
 <p>
     You are given a text, which contains different english letters and punctuation symbols.
     You should find the most frequent letter in the text. The letter returned must be in lower case.<br>
-    While checking for the most wanted letter, casing does not matter, so for the purpose of your search, "A" == "a". 
+    While checking for the most wanted letter, casing does not matter, so for the purpose of your search, "A" == "a".
     Make sure you do not count punctuation symbols and whitespaces, only letters.
-    If you have two or more letters with the same frequency, then return the letter which comes first in the alphabet.
+</p>
+<p>
+    If you have <strong>two or more letters with the same frequency</strong>,
+    then return the letter which comes first in the alphabet.
     (Ex: we have "b" and "f" as the most frequent, then return "b")
+</p>
+
+<p>
+    <strong>precondition: </strong> The text always contains letters (one as minimum).
 </p>
 
 <p>
@@ -31,7 +38,8 @@ checkio("AAaooo!!!!") == "a"
 <p class="for_info_only">
     <strong>How it is used: </strong>
     For most decryption tasks you need to know the frequency of occurrence for various letters in a text.
-    For example, we can easily crack a simple addition or substitution cipher if we know the frequency in which letters appear. 
+    For example, we can easily crack a simple addition or substitution cipher if we know the frequency in which letters
+    appear.
     This is interesting stuff for language experts!
 </p>
 
