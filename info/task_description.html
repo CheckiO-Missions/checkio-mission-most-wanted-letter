@@ -6,13 +6,10 @@
 </p>
 <p>
     If you have <strong>two or more letters with the same frequency</strong>,
-    then return the letter which comes first in the alphabet.
-    (Ex: we have "b" and "f" as the most frequent, then return "b")
+    then return the letter which comes first in the latin alphabet.
+    For example -- "one" contains "o", "n", "e" only once for each, thus we choose "e".
 </p>
 
-<p>
-    <strong>Precondition: </strong> The text always contains letters (one as minimum).
-</p>
 
 <p>
     <strong>Input: </strong> A text for analysis. A string (Unicode).
@@ -43,8 +40,13 @@ checkio("AAaooo!!!!") == "a"
     This is interesting stuff for language experts!
 </p>
 
+
+<p><strong>Precondition</strong>:<br>
+    The password contains only ASCII symbols.<br>
+    0 < |text| &le; 10<sup>5</sup>
+</p>
+
 <p class="for_info_only">
     <strong>How to use TryIt: </strong><br>
     <iframe width="560" height="315" src="//www.youtube.com/embed/yJUA5qN898E" frameborder="0" allowfullscreen></iframe>
 </p>
-
