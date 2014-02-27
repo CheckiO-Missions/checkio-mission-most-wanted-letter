@@ -79,6 +79,9 @@ TESTS = {
          "answer": "d"},
         {"input": "i-d-d-q-d",
          "answer": "d"},
+        {"input": "12345,12345,12345 S 12345,12345",
+         "answer": "s"},
+
 
         {"input": 'ZYXWVUTSRQPONMLKJIHGFEDCBAzyxwvutsrqponmlkjihgfedcba',
          "answer": "a"},
