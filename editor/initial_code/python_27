@@ -11,3 +11,6 @@ if __name__ == '__main__':
     assert checkio(u"Oops!") == "o", "Don't forget about lower case."
     assert checkio(u"AAaooo!!!!") == "a", "Only letters."
     assert checkio(u"abe") == "a", "The First."
+    print("Start the long test")
+    assert checkio(u"a" * 9000 + u"b" * 1000) == "a", "Long."
+    print("The local tests are done.")
