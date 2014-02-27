@@ -10,3 +10,4 @@ if __name__ == '__main__':
     assert checkio("One") == "e", "All letter only once."
     assert checkio("Oops!") == "o", "Don't forget about lower case."
     assert checkio("AAaooo!!!!") == "a", "Only letters."
+    assert checkio("abe") == "a", "The First."

@@ -29,6 +29,10 @@ TESTS = {
             "input": "AAaooo!!!!",
             "answer": "a"
         },
+        {
+            "input": "abe",
+            "answer": "a"
+        },
 
 
     ],
