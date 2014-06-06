@@ -1,0 +1,52 @@
+<p>
+    Dado um texto que contém várias letras em inglês e sinais de pontuação.
+    Você deve encontrar a letra mais frequente no texto. A letra retornada deve ser uma letra minúscula. <br>
+    Ao procurar a letra mais frequente, diferenças entre maiúsculas e minusculas não importam, de modo que para a busca assuma que "A"&nbsp;==&nbsp;"a".
+    Certifique-se de não considerar pontuação, números e espaços em branco na busca, apenas letras.
+</p>
+<p>
+    Se o texto possui <strong>duas ou mais letras com a mesma frequência</strong>,
+    então o resultado será a letra que vem primeiro no alfabeto latino.
+    Por exemplo -- "one" contém "o", "n", "e" apenas uma vez para cada um, de modo que nós escolhemos "e".
+</p>
+
+
+<p>
+    <strong>Entrada: </strong> Um texto para análise no formato de string (unicode para py2.7).
+</p>
+
+<p>
+    <strong>Saída: </strong> A letra mais frequente em letra minúscula no formato de string.
+</p>
+
+<div class="for_info_only">
+    <p>
+        <strong>Exemplo:</strong>
+    </p>
+    <pre class="brush: python">
+checkio("Hello World!") == "l"
+checkio("How do you do?") == "o"
+checkio("One") == "e"
+checkio("Oops!") == "o"
+checkio("AAaooo!!!!") == "a"
+checkio("abe") == "a"
+</pre>
+</div>
+
+<p class="for_info_only">
+    <strong>Como é utilizado: </strong>
+    Para a maioria das tarefas de decriptografia, você precisa saber a frequência de ocorrência de várias letras em uma seção de texto.
+    Por exemplo: podemos facilmente quebrar um algoritmo de criptografia simples de adição ou substituição se soubermos a frequência em que as letras aparecem.
+    Também pode ser informação útil para linguistas!
+</p>
+
+
+<p><strong>Condições prévias</strong>:<br>
+    A senha contém apenas símbolos ASCII.<br>
+    0 &lt; len(text) &le; 10<sup>5</sup>
+</p>
+
+<p class="for_info_only">
+    <strong>Como utilizar TryIt: </strong><br>
+    <iframe width="560" height="315" src="//www.youtube.com/embed/yJUA5qN898E" frameborder="0" allowfullscreen></iframe>
+</p>
