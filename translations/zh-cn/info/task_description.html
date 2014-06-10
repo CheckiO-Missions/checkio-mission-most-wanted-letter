@@ -1,0 +1,49 @@
+﻿<p>
+    给你一个其中包含不同的英文字母和标点符号的文本，你要找到其中出现最多的字母，返回的字母必须是小写形式，<br>
+    当检查最想要的字母时，不区分大小写，所以在你的搜索中 "A"&nbsp;==&nbsp;"a"。 
+    请确保你不计算标点符号，数字和空格，只计算字母。
+</p>
+<p>
+    如果你找到 <strong>两个或两个以上的具有相同的频率的字母</strong>，
+    返回那个先出现在字母表中的字母。
+    例如 -- “one”包含“o”，“n”，“e”每个字母一次，因此我们选择“e”。
+</p>
+
+
+<p>
+    <strong>输入: </strong> 用于分析的文本 (str, unicode).
+</p>
+
+<p>
+    <strong>输出: </strong> 最常见的字母的小写形式。
+</p>
+
+<div class="for_info_only">
+    <p>
+        <strong>范例:</strong>
+    </p>
+    <pre class="brush: python">
+checkio("Hello World!") == "l"
+checkio("How do you do?") == "o"
+checkio("One") == "e"
+checkio("Oops!") == "o"
+checkio("AAaooo!!!!") == "a"
+checkio("abe") == "a"
+</pre>
+</div>
+
+<p class="for_info_only">
+    <strong>如何使用：</strong>
+    对于大多数的解密任务，你需要知道各种字母出现在一段文字的频率。例如：如果我们知道在哪个字母出现的频率，我们可以很容易地破解一个简单的加法密码或替换密码。这是语言专家有趣的事情！
+</p>
+
+
+<p><strong>前提:</strong>:<br>
+    <strong>密码</strong>只包含ASCII码符号<br>
+    0 &lt; len(text) &le; 10<sup>5</sup>
+</p>
+
+<p class="for_info_only">
+    <strong>How to use TryIt: </strong><br>
+    <iframe width="560" height="315" src="//www.youtube.com/embed/yJUA5qN898E" frameborder="0" allowfullscreen></iframe>
+</p>
