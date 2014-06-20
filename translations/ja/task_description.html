@@ -1,0 +1,53 @@
+<p>
+	あなたは英字と記号を含むテキストが与えられます。
+	このテキストの中で最も出現頻度の高い文字を見つけなければいけません。
+	文字は小文字で返さなければいけません。<br>
+	最も求められている文字を検査している最中、大文字と小文字は区別しません。
+	つまり、検索の目的については"A"&nbsp;==&nbsp;"a"ということです。
+	記号、数字、空白は数えないことに注意してください。文字だけです。
+</p>
+<p>
+	もし<strong>二文字以上が同じ頻度</strong>のときは、アルファベットで最初にくる文字を返します。
+	例えば、"ONE"は"o", "n", "e"を各一個含んでいて、我々は"e"を選びます。
+</p>
+
+
+<p>
+    <strong>入力: </strong> 解析したいテキスト、文字列(unicode for py2.7).
+</p>
+
+<p>
+    <strong>出力: </strong> 一番多い文字の小文字、文字列
+</p>
+
+<div class="for_info_only">
+    <p>
+        <strong>例:</strong>
+    </p>
+    <pre class="brush: python">
+checkio("Hello World!") == "l"
+checkio("How do you do?") == "o"
+checkio("One") == "e"
+checkio("Oops!") == "o"
+checkio("AAaooo!!!!") == "a"
+checkio("abe") == "a"
+</pre>
+</div>
+
+<p class="for_info_only">
+    <strong>どのように使われるか: </strong>
+	多くの復号タスクでは、選択したテキストの中の様々な文字の出現頻度を知る必要があります。
+	例えば:文字の出現頻度を知っていれば単純な加算または減算暗号は簡単にクラックできます。
+	これは言語の専門家が興味をもつものです。
+</p>
+
+
+<p><strong>事前条件</strong>:<br>
+    テキストはASCII記号だけを含んでいる<br>
+    0 &lt; len(text) &le; 10<sup>5</sup>
+</p>
+
+<p class="for_info_only">
+    <strong>TryItの使用法: </strong><br>
+    <iframe width="560" height="315" src="//www.youtube.com/embed/yJUA5qN898E" frameborder="0" allowfullscreen></iframe>
+</p>
