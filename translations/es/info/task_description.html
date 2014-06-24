@@ -1,0 +1,53 @@
+<p>
+    Se le dará un texto, el cual contiene diferentes letras y símbolos de puntuación.
+    Debes encontrar la letra más frecuente en el texto. La letra retornada debe estar en minúscula.<br>
+    Mientras realizas la búsqueda de la letra, no considerar diferencias entre mayúsculas y minúsculas, asi que para efectos de la búsqueda,
+    "A"&nbsp;==&nbsp;"a".
+    Asegurarse de no contar los signos de puntuación, dígitos o espacios en blanco, considerar solo letras.
+</p>
+<p>
+    Si se tiene <strong>una o más letras con la misma frecuencia</strong>,
+    entonces el resultado será la letra que aparece primero en el alfabeto latino.
+    Por ejemplo -- "one" contiene "o", "n", "e" solo hay una por cada letra, por lo tanto escogemos la letra "e".
+</p>
+
+
+<p>
+    <strong>Entrada: </strong> Una cadena de caracteres (string) como texto para el análisis (unicode para py2.7).
+</p>
+
+<p>
+    <strong>Salida: </strong> La letra mas frecuente en minúscula como una cadena de caracteres (string).
+</p>
+
+<div class="for_info_only">
+    <p>
+        <strong>Ejemplo:</strong>
+    </p>
+    <pre class="brush: python">
+checkio("Hello World!") == "l"
+checkio("How do you do?") == "o"
+checkio("One") == "e"
+checkio("Oops!") == "o"
+checkio("AAaooo!!!!") == "a"
+checkio("abe") == "a"
+</pre>
+</div>
+
+<p class="for_info_only">
+    <strong>¿Cómo es usado?: </strong>
+    Para la mayoría de procedimientos de desencriptado necesitas conocer la frecuencia de ocurrencia de varias letras en una sección de texto.
+    Por ejemplo: podemos descifrar con facilidad un simple cifrado de adición o substitución si conocemos la frecuencia con la cual aparecen las letras.
+    ¡Esto es algo interesante para los expertos en idiomas!
+</p>
+
+
+<p><strong>Pre-condicion</strong>:<br>
+    El texto contiene solo caracteres ASCII.<br>
+    0 &lt; len(text) &le; 10<sup>5</sup>
+</p>
+
+<p class="for_info_only">
+    <strong>¿Cómo usar TryIt?: </strong><br>
+    <iframe width="560" height="315" src="//www.youtube.com/embed/yJUA5qN898E" frameborder="0" allowfullscreen></iframe>
+</p>
