@@ -48,6 +48,10 @@ TESTS = {
          "answer": "o"},
         {"input": "fn;lsfndasl;f naslkdnlkasdnfslahwemwjkrjkl;zcmk;lzcdkcslksdkseewme,",
          "answer": "k"},
+        {
+            "input": "fsbd",
+            "answer": "b"
+        }
 
     ],
     "3. Texts.": [
