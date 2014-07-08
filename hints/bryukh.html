@@ -1,0 +1,53 @@
+<body data-author="bryukh">
+<div class="question-answer">
+    <div class="question">
+        I have no idea how to start solving this mission
+    </div>
+    <div class="answer">
+        At first, make the whole text one letter case --
+        <a href="https://docs.python.org/3.3/library/stdtypes.html#str.lower">str.lower()</a>.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I need some help to proceed with the mission
+    </div>
+    <div class="answer">
+        You can iterate text character by character, or you can iterate the letters and count them.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I am gone half way through. Need help!
+    </div>
+    <div class="answer">
+        If you are using a dictionary (or Counter), then remember that data type is unordered.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I am stuck. I need a small hint.
+    </div>
+    <div class="answer">
+        Be careful with letter cases, when text contains several letters with the same frequency. If you are using
+        "Counter", then it can return various results for the max counter.
+
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I tried all I could. Nothing works. SOS
+    </div>
+    <div class="answer">
+        Let's suppose you got a list like this (maybe dict.items()):
+
+        <pre class="brush: python">
+[("a", 2), ("b", 4), ("c", 5), ....]</pre>
+        Then you can get the answer with advanced sorting:
+        <pre class="brush: python">
+sorted(array, key=lambda x: -x[1], x[0])</pre>
+        And the required letter will be the first.
+
+    </div>
+</div>
+</body>
