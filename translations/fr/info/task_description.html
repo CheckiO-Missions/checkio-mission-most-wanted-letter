@@ -1,0 +1,46 @@
+<p>
+Dans un texte en anglais, qui contient des lettres et des signes de ponctuation, il faut déterminer la lettre la plus
+fréquente. La lettre renvoyée doit être en casse minuscule.<br>
+Dans cette recherche, la casse n'a pas d'importance. On considère par exemple, pour compter le nombre de "a", que
+"A"&nbsp;==&nbsp;"a".
+Assurez vous de ne compter ni les signes de ponctuation, ni les chiffres, ni les espaces : uniquement les lettres.
+</p>
+<p>
+Si <strong>deux lettres ou plus apparaissent à la même fréquence</strong>, il faut renvoyer la lettre qui est classée la 
+première par ordre alphabétique .
+
+Par exemple -- "one" contient "o", "n", "e" une fois chacun, donc on choisit de renvoyer "e".
+</p>
+<p>
+<strong>Input: </strong> Un texte à analyser comme chaîne de caractères (str) (unicode for py2.7).
+</p>
+<p>
+<strong>Output: </strong> La lettre la plus fréquente en minuscule (str).
+</p>
+<div class="for_info_only">
+<p>
+<strong>Example:</strong>
+</p>
+<pre class="brush: python">
+checkio("Hello World!") == "l"
+checkio("How do you do?") == "o"
+checkio("One") == "e"
+checkio("Oops!") == "o"
+checkio("AAaooo!!!!") == "a"
+checkio("abe") == "a"
+</pre>
+</div>
+<p class="for_info_only">
+<strong>Utilisation: </strong>
+Dans tous les travaux de décryptage, il faut connaître la fréquence d'apparition des lettres dans une portion de texte.
+Par exemple: on peut facilement décoder un codage par décalage ou substitution si l'on connaît la fréquence 
+d'apparition des lettres. Ce sont des thèmes qui intéressent les experts en linguistique !
+</p>
+<p><strong>Précondition</strong>:<br>
+Le texte ne contient que des symboles ASCII.<br>
+0 &lt; len(text) &le; 10<sup>5</sup>
+</p>
+<p class="for_info_only">
+<strong>Utilisation de  TryIt: </strong><br>
+<iframe width="560" height="315" src="//www.youtube.com/embed/yJUA5qN898E" frameborder="0" allowfullscreen></iframe>
+</p>
