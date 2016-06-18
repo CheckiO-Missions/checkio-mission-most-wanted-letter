@@ -65,10 +65,9 @@ requirejs(['ext_editor_io', 'jquery_190', 'raphael_210'],
                     return;
                 }
                 var canvas = new MWLAnimation();
-                canvas.createExplanation($content.find(".explanation"), checkioInput, rightResult, true);
-                this_e.setAnimationHeight($content.height() + 60);
+                canvas.createExplanation($expl, checkioInput, rightResult, true);
             },
-            tryit: function() {
+            tryit: function(this_e) {
                 $tryit = this_e.extSetHtmlTryIt(this_e.getTemplate('tryit'));
                 tCanvas = new MWLAnimation();
                 $textInput = $tryit.find(".text-input");
