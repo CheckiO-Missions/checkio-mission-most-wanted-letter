@@ -25,12 +25,21 @@
         <strong>Приклади:</strong>
     </p>
     <pre class="brush: python">
+{% if interpreter.slug == "js-node" %}
+mostWanted("Hello World!") == "l"
+mostWanted("How do you do?") == "o"
+mostWanted("One") == "e"
+mostWanted("Oops!") == "o"
+mostWanted("AAaooo!!!!") == "a"
+mostWanted("abe") == "a"
+{% else %}
 checkio("Hello World!") == "l"
 checkio("How do you do?") == "o"
 checkio("One") == "e"
 checkio("Oops!") == "o"
 checkio("AAaooo!!!!") == "a"
 checkio("abe") == "a"
+{% endif %}
 </pre>
 </div>
 

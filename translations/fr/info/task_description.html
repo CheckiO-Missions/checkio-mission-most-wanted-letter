@@ -22,12 +22,21 @@ Par exemple -- "one" contient "o", "n", "e" une fois chacun, donc on choisit de 
 <strong>Example:</strong>
 </p>
 <pre class="brush: python">
+{% if interpreter.slug == "js-node" %}
+mostWanted("Hello World!") == "l"
+mostWanted("How do you do?") == "o"
+mostWanted("One") == "e"
+mostWanted("Oops!") == "o"
+mostWanted("AAaooo!!!!") == "a"
+mostWanted("abe") == "a"
+{% else %}
 checkio("Hello World!") == "l"
 checkio("How do you do?") == "o"
 checkio("One") == "e"
 checkio("Oops!") == "o"
 checkio("AAaooo!!!!") == "a"
 checkio("abe") == "a"
+{% endif %}
 </pre>
 </div>
 <p class="for_info_only">
