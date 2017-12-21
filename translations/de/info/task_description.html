@@ -1,0 +1,64 @@
+<div style="text-align: center">
+    <img src="{{MEDIA}}title.png" style="max-height: 350px">
+</div>
+<p>
+    Du bekommst einen Text, der unterschiedliche englische Buchstaben und Satzzeichen enth&auml;lt.
+    Finde den Buchstaben, der am h&auml;ufigsten vorkommt. Der Buchstabe soll als Kleinbuchstabe zur&uuml;ck gegeben werden.<br>
+    Beim Pr&uuml;fen des am h&auml;ufigsten vorkommenden Buchstaben spielt Gro&szlig;-/Kleinschreibung keine Rolle. Es gilt:
+    "A"&nbsp;==&nbsp;"a".
+    Z&auml;hle nur Buchstaben, keine Satzzeichen, Ziffern oder Leerzeichen. 
+</p>
+<p>
+    Wenn du <strong>zwei oder mehr Buchstaben mit der gleichen H&auml;ufigkeit</strong> hast,
+    gib nur denjenigen zur&uuml;ck, der im Alphabet zuerst kommt.
+    Zum Beispiel -- "one" enth&auml;lt "o", "n", "e" jeweils einmal, also geben wir "e" zur&uuml;ck.
+</p>
+
+
+<p>
+    <strong>Eingabe: </strong> Ein Text zur Analyse als String.
+</p>
+
+<p>
+    <strong>Ausgabe: </strong> Der am h&auml;ufigsten vorkommender Buchstabe als Kleinbuchstabe als string.
+</p>
+
+<div class="for_info_only">
+    <p>
+        <strong>Beispiel:</strong>
+    </p>
+    <pre class="brush: python">{% if interpreter.slug == "js-node" %}
+mostWanted("Hello World!") == "l"
+mostWanted("How do you do?") == "o"
+mostWanted("One") == "e"
+mostWanted("Oops!") == "o"
+mostWanted("AAaooo!!!!") == "a"
+mostWanted("abe") == "a"
+{% else %}
+checkio("Hello World!") == "l"
+checkio("How do you do?") == "o"
+checkio("One") == "e"
+checkio("Oops!") == "o"
+checkio("AAaooo!!!!") == "a"
+checkio("abe") == "a"
+{% endif %}</pre>
+</div>
+
+<p class="for_info_only">
+    <strong>Wozu ist das gut: </strong>
+    F&uuml;r viele Verschl&uuml;sselungsaufgaben ben&ouml;tigt man die H&auml;ufigkeit von verschiedenen Buchstaben in einem Textabschnitt.
+    Zum Beipiel k&ouml;nnen wir einfache Additionschiffre und Substitutionschiffre knacken, wenn wir wissen, wie h&auml;ufig welcher Buchstabe vorkommt.
+
+    F&uuml;r Sprachexperten ist das sehr interessant!
+</p>
+
+
+<p><strong>Bedingung</strong>:<br>
+    Ein Text besteht nur aus ASCII Symbolen.<br>
+    0 &lt; len(text) &le; 10<sup>5</sup>
+</p>
+
+<p class="for_info_only">
+    <strong>Wie man TryIt verwendet: </strong><br>
+    <iframe width="560" height="315" src="//www.youtube.com/embed/yJUA5qN898E" frameborder="0" allowfullscreen></iframe>
+</p>
