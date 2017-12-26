@@ -1,0 +1,62 @@
+<div style="text-align: center">
+    <img src="{{MEDIA}}title.png" style="max-height: 350px">
+</div>
+<p>
+    Otrzymujesz tekst, który zawiera różne angielskie litery i symbole interpunkcyjne.
+    Powinieneś znaleźć najczęściej powtarzającą się literę w tekście. Zwrócona litera musi być mała.<br>
+    Podczas poszukiwań rozwiązania wielkość liter nie ma znaczenia i można założyć, że "A"&nbsp;==&nbsp;"a".
+    Upewnij się, że nie zliczasz symboli interpunkcyjnych, cyfr ani białych znaków, tylko litery.
+</p>
+<p>
+    Jeśli otrzymasz <strong>dwie lub więcej liter występujących równie często</strong>,
+    zwróć wtedy literę, która występuje pierwsza w alfabecie łacińskim.
+    Przykład -- "one" zawiera "o", "n", "e" każdą literę tylko raz, zatem wybieramy "e".
+</p>
+
+
+<p>
+    <strong>Input: </strong> Tekst do analizy jako string.
+</p>
+
+<p>
+    <strong>Output: </strong> Najczęściej występująca litera jako mała litera i jako string.
+</p>
+
+<div class="for_info_only">
+    <p>
+        <strong>Przykłady:</strong>
+    </p>
+    <pre class="brush: python">{% if interpreter.slug == "js-node" %}
+mostWanted("Hello World!") == "l"
+mostWanted("How do you do?") == "o"
+mostWanted("One") == "e"
+mostWanted("Oops!") == "o"
+mostWanted("AAaooo!!!!") == "a"
+mostWanted("abe") == "a"
+{% else %}
+checkio("Hello World!") == "l"
+checkio("How do you do?") == "o"
+checkio("One") == "e"
+checkio("Oops!") == "o"
+checkio("AAaooo!!!!") == "a"
+checkio("abe") == "a"
+{% endif %}</pre>
+</div>
+
+<p class="for_info_only">
+    <strong>Do czego to może być przydatne: </strong>
+    W przypadku większości zadań polegających na odszyfrowaniu tekstu powinieneś znać częstotliwość występowania liter w tekście.
+    Na przykład: możemy łatwo złamać prosty szyfr przestawieniowy lub podstawieniowy, jeśli znamy częstotliwość występowania każdej z liter.
+    To są interesujące rzeczy dla lingwistów!
+</p>
+
+
+<p><strong>Założenia</strong>:<br>
+    Tekst zawierający wyłącznie symbole ASCII.<br>
+    0 &lt; len(text) &le; 10<sup>5</sup>
+</p>
+
+<p class="for_info_only">
+    <strong>Jak użyć TryIt: </strong><br>
+    <iframe width="560" height="315" src="//www.youtube.com/embed/yJUA5qN898E" frameborder="0" allowfullscreen></iframe>
+</p>
