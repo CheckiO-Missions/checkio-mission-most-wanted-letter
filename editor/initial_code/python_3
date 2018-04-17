@@ -1,4 +1,4 @@
-def checkio(text):
+def checkio(text: str) -> str:
 
     #replace this for solution
     return 'a'
