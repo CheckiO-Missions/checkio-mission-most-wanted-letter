@@ -4,6 +4,9 @@ def checkio(text: str) -> str:
     return 'a'
 
 if __name__ == '__main__':
+    print("Example:")
+    print(checkio("Hello World!"))
+
     #These "asserts" using only for self-checking and not necessary for auto-testing
     assert checkio("Hello World!") == "l", "Hello test"
     assert checkio("How do you do?") == "o", "O is most wanted"
