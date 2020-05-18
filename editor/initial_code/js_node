@@ -1,16 +1,20 @@
-"use strict";
+import assert from "assert";
 
-function mostWanted(data) {
-    return data;
+function mostWanted(text: string): string {
+    // your code here
+    return 'a';
 }
 
-var assert = require('assert');
+console.log('Example:');
+console.log(mostWanted('Hello World!'));
 
-if (!global.is_checking) {
-    assert.equal(mostWanted("Hello World!"), "l", "1st example");
-    assert.equal(mostWanted("How do you do?"), "o", "2nd example");
-    assert.equal(mostWanted("One"), "e", "3rd example");
-    assert.equal(mostWanted("Oops!"), "o", "4th example");
-    assert.equal(mostWanted("AAaooo!!!!"), "a", "Letters");
-    console.log("Coding complete? Click 'Check' to review your tests and earn cool rewards!");
-}
+// These "asserts" are used for self-checking
+assert.equal(mostWanted('Hello World!'), 'l');
+assert.equal(mostWanted('How do you do?'), 'o');
+assert.equal(mostWanted('One'), 'e');
+assert.equal(mostWanted('Oops!'), 'o');
+assert.equal(mostWanted('AAaooo!!!!'), 'a');
+assert.equal(mostWanted('abe'), 'a');
+
+console.log("Coding complete? Click 'Check' to earn cool rewards!");
+    

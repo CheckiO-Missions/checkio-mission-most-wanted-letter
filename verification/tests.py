@@ -8,7 +8,7 @@ Each test is dict with
 """
 
 TESTS = {
-    "1. Examples": [
+    "Basics": [
         {
             "input": "Hello World!",
             "answer": 'l'
