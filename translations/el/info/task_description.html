@@ -30,23 +30,7 @@
         <strong>Παράδειγμα:</strong>
     </p>
     
-{% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">mostWanted('Hello World!') == 'l'
-mostWanted('How do you do?') == 'o'
-mostWanted('One') == 'e'
-mostWanted('Oops!') == 'o'
-mostWanted('AAaooo!!!!') == 'a'
-</pre>
-{% else %}
-<pre class="brush: python">
-checkio("Hello World!") == "l"
-checkio("How do you do?") == "o"
-checkio("One") == "e"
-checkio("Oops!") == "o"
-checkio("AAaooo!!!!") == "a"
-checkio("abe") == "a"
-</pre>
-{% endif %}
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </div>
 
 <p class="for_info_only">
