@@ -1,0 +1,184 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        I have no idea how to start solving this mission.
+    </div>
+    <div class="answer">
+        The idea I offer you is to create some kind of map with letters and
+        their frequency in string. In such map you can find the most frequent one
+        and chose alphabetically smaller letter among few if necessary.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        What instrument of Python should I start from to implement this idea
+        into code?
+    </div>
+    <div class="answer">
+        Since casing doesn't matter ("A" == "a"), you should make the whole
+        text one letter case. With <a href="https://docs.python.org/3/library/stdtypes.html#str.lower">str.lower()</a> you make letters lowercase.
+        <br>
+        <br>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+print(text) # "hello!"
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        All letters become the same case. What kind of map should I use
+        to store letters and their frequency?
+    </div>
+    <div class="answer">
+        For this purpose you may use <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">dictionary</a>.
+        <b>Read this article attentively, you will find there almost all info to solve this mission.</b>
+        For our example "Hello!" this dictionary (unordered data type) may looks like:
+        <br>
+        <br>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = ...
+print(mass) # {"h": 1, "l": 2, "o": 1, "e": 1, "!": 1}
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok. But how to create such dictionary?
+    </div>
+    <div class="answer">
+        You should use dict comprehension from link above. Besides, you will need
+        string <a target="_blank" href="https://www.w3schools.com/python/ref_string_count.asp">str.count()</a> method:
+        <br>
+        <br>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = {l: text.count(l) for l in text}
+print(mass) # {"h": 1, "l": 2, "o": 1, "e": 1, "!": 1}
+        </pre> 
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I see. But string in mission includes punctuation symbols I don't need.
+        How not to consider them in my dictionary? 
+    </div>
+    <div class="answer">
+        You should check each symbol with <a target="_blank" href="https://docs.python.org/3/library/curses.ascii.html#curses.ascii.isalpha">str.isalpha()</a> function.
+        Besides, I offer you to use <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#sets">set()</a> on text inside
+        dict comprehension to iterate only over unique symbols:
+        <br>
+        <br>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+print(mass) # {"h": 1, "l": 2, "o": 1, "e": 1}
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I still don't understand how to proceed. I need a hint.
+    </div>
+    <div class="answer">
+        You next step is to find maximum number in dictionary values.
+        It is your maximum frequency. Do it with max() function and dict.values() method:
+<br>
+<br>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+print(mass) # {"h": 1, "l": 2, "o": 1, "e": 1}
+freq = max(mass.values())
+print(freq) # 2
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I feel, I am close, but how to find the letter with this frequency?
+    </div>
+    <div class="answer">
+        For this step you need dict.items() method to get letter-frequency
+        tuples from dictionary. Then iterating over that tuples get letter(s)
+        for which frequency equal maximum frequency.
+        And the comprehension to find all letters with maximum frequency is:
+<br>
+<br>
+        <pre class="brush: python">
+k for k, v in mass.items() if v == freq
+        </pre>
+        In case, you have more than one letter with maximum frequency, 
+        you should wrap this comprehension inside min() function to get
+        alphabetically smaller letter.
+        <br>
+        <br>
+        <pre class="brush: python">
+let = min(k for k, v in mass.items() if v == freq)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        So what should my final solution look like?
+    </div>
+    <div class="answer">
+        To get final solution you should join all above code together, 
+        declare the function itself and return your most wanted letter.
+<br>
+<br>
+        <pre class="brush: python">
+def checkio(text: str) -> str:
+
+    text = text.lower()
+    mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+    freq = max(mass.values())
+    let = min(k for k, v in mass.items() if v == freq)
+
+    return let
+        </pre>
+        I hope, you don't think that it is the only way to solve this mission!
+        There are a lot of interesting ideas you be able to see after
+        your solution passes all tests successfully. For example:
+        <br>
+        <br>
+        <pre class="brush: python">
+checkio=lambda t:max('abcdefghijklmnopqrstuvwxyz',key=t.lower().count)
+        </pre>
+        Iterating over all lowercase letters, finding value of function for each, 
+        taking letters with maximum value with max() which is also takes smaller
+        (lefter) letter in case of few with equal frequency.
+<br>
+<br>
+        <pre class="brush: python">
+def checkio(text: str) -> str:
+
+text = text.lower()
+mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+let, _ = min(mass.items(), key = lambda i: (-i[1], i[0]))
+
+return let
+        </pre>
+You solution may be changed in such a way. Tricky idea with iterating
+over the letter-frequency tuples and finding value of function for each,
+function with double sorting - reversed by frequency first and then - if
+equal - normal by letter second. Taking minimum means alphabetically
+smaller letter and its frequency. Since we don't need frequency anymore
+we may replace in with "_" and return only letter. 
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Wow, thanks! I know and understand more know! Everything works fine!
+    </div>
+    <div class="answer">
+        Glad to hear it!
+    </div>
+</div>
+</body

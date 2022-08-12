@@ -1,0 +1,187 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Я уявлення не маю, як розпочати розв'язок цієї місії.
+    </div>
+    <div class="answer">
+        Ідея, яку я тобі пропоную, полягає у тому, щоб створити свого роду мапу з
+        літерами і їх частотою у рядку. В такій мапі ти зможеш знайти найбільшу
+        частоту і вибрати алфавітно меншу літеру у випадку декількох з 
+        однаковою частотою.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        З якого інструменту Python я маю розпочати, щоб втілити цю ідею
+        в код?
+    </div>
+    <div class="answer">
+        Оскільки регістр літер значення не має ("A" == "a"), ти повинен зробити
+        увесь рядок в одному регістрі. З <a href="https://docs.python.org/3/library/stdtypes.html#str.lower">str.lower()</a> ти зробиш всі літери малими.
+        <br>
+        <br>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+print(text) # "hello!"
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Всі літери стали одного регістру. Якого роду мапу Я маю використати,
+        щоб зберігати літери і їх частоти?
+    </div>
+    <div class="answer">
+        З цією метою ти можеш використати  <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">словник</a>.
+        <b>Прочитай цю статтю уважно, тут ти знайдеш майже всю інформацію для розв'язку місії.</b> 
+        Для нашого прикладу "Hello!" цей словник (невпорядкований тип даних) може мати вигляд:
+        <br>
+        <br>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = ...
+print(mass) # {"h": 1, "l": 2, "o": 1, "e": 1, "!": 1}
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Добре, але як створити такий словник?
+    </div>
+    <div class="answer">
+        Ти маєш використати генератор словника, про який згадується у посиланні.
+        Крім того, тобі знадобиться метод рядків <a target="_blank" href="https://www.w3schools.com/python/ref_string_count.asp">str.count()</a>:
+        <br>
+        <br>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = {l: text.count(l) for l in text}
+print(mass) # {"h": 1, "l": 2, "o": 1, "e": 1, "!": 1}
+        </pre> 
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Я розумію. Але рядок в місії включає знаки пунктуації, які мені не потрібні.
+        Як їх не враховувати в моєму словнику?
+    </div>
+    <div class="answer">
+        Ти маєш перевірити кожен символ з допомогою функції <a target="_blank" href="https://docs.python.org/3/library/curses.ascii.html#curses.ascii.isalpha">str.isalpha()</a>.
+        Крім того, я пропоную тобі використати <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#sets">set()</a> для text всередині
+        генератора словника, що проходити лише по унікальних символах:
+        <br>
+        <br>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+print(mass) # {"h": 1, "l": 2, "o": 1, "e": 1}
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Я все одно не розумію як продовжити. Мені потрібна підказка.
+    </div>
+    <div class="answer">
+        Твій наступний крок це знайти максимальне число в значеннях словника.
+        Це твоя максимальна частота. Зроби це з функцією max() і методом dict.values():
+<br>
+<br>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+print(mass) # {"h": 1, "l": 2, "o": 1, "e": 1}
+freq = max(mass.values())
+print(freq) # 2
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Я відчуваю, що я близько, але як знайти букву з цією максимальною частотою?
+    </div>
+    <div class="answer">
+        Для цього кроку тобі потрібен метод dict.items(), щоб отримати кортежі
+        літера-частота зі словника. Тоді проходячи по цих кортежах, отримати літеру(и),
+        для яких частота дорівнює максимальній частоті.
+        І вираз для для знаходження усіх літер із максимальною частотою наступний:
+<br>
+<br>
+        <pre class="brush: python">
+k for k, v in mass.items() if v == freq
+        </pre>
+        У випадку, якщо ти маєш декілька літер з максимальною частотою - передавай
+        цей вираз у функцію min() для отримання алфавітно найменшої літери.
+        <br>
+        <br>
+        <pre class="brush: python">
+let = min(k for k, v in mass.items() if v == freq)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        То яким має бути мій остаточний розв'язок?
+    </div>
+    <div class="answer">
+        Щоб отримати фінальний розв'язок, ти маєш об'єднати весь код разом,
+        проголосити функцію і повернути твою найбільш уживану літеру.
+<br>
+<br>
+        <pre class="brush: python">
+def checkio(text: str) -> str:
+
+    text = text.lower()
+    mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+    freq = max(mass.values())
+    let = min(k for k, v in mass.items() if v == freq)
+
+    return let
+        </pre>
+        Я сподіваюся, ти не думаєш, що це єдиний спосіб розв'язати цю місію! 
+        Є багато цікавих ідей, які ти зможеш оцінити після того, як твоє рішення
+        успішно пройде всі тести. Наприклад:
+        <br>
+        <br>
+        <pre class="brush: python">
+checkio=lambda t:max('abcdefghijklmnopqrstuvwxyz',key=t.lower().count)
+        </pre>
+        Проходячи по всіх малих літерах, знаходиться значення функції для кожної,
+        беруться літери з найбільшим значенням з допомогою функції max(),
+        яка також повертає меншу (лівішу) літеру у випадку декількох з
+        однаковою частотою.
+<br>
+<br>
+        <pre class="brush: python">
+def checkio(text: str) -> str:
+
+text = text.lower()
+mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+let, _ = min(mass.items(), key = lambda i: (-i[1], i[0]))
+
+return let
+        </pre>
+        Твоє рішення може бути змінене наступним чином. Цікава ідея
+        з проходженням через кортежі літера-частота, і знаходження
+        значення функції для кожного з них, функція з подвійним сортуванням -
+        спочатку зворотне за частотою і потім пряме за літерою у випадку декількох
+        з однаковою частотою. Функція min() бере найменше (найлівіше) значення серед кортежів
+        за функцією. Тобто максимальна частота і мінімальна алфавітно літера. 
+        Оскільки ми не потребуємо частоту більше, ми можемо замінити її на
+        "_" і повернути тільки літеру. 
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ого, дякую! Тепер я знаю і розумію більше! Все працює як слід!
+    </div>
+    <div class="answer">
+        Приємно це чути!
+    </div>
+</div>
+</body
