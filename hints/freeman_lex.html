@@ -16,7 +16,7 @@
     </div>
     <div class="answer">
         Since casing doesn't matter ("A" == "a"), you should make the whole
-        text one letter case. With <a href="https://docs.python.org/3/library/stdtypes.html#str.lower">str.lower()</a> you obviously make letters lowercase.
+        text one letter case. With <a href="https://docs.python.org/3/library/stdtypes.html#str.lower">str.lower()</a> you make letters lowercase.
         <br>
         <br>
         <pre class="brush: python">
@@ -51,7 +51,7 @@ print(mass) # {"h": 1, "l": 2, "o": 1, "e": 1, "!": 1}
     </div>
     <div class="answer">
         You should use dict comprehension from link above. Besides, you will need
-        string <a target="_blank" href="https://www.w3schools.com/python/ref_string_count.asp">count()</a> method:
+        string <a target="_blank" href="https://www.w3schools.com/python/ref_string_count.asp">str.count()</a> method:
         <br>
         <br>
         <pre class="brush: python">
@@ -68,7 +68,7 @@ print(mass) # {"h": 1, "l": 2, "o": 1, "e": 1, "!": 1}
         How not to consider them in my dictionary? 
     </div>
     <div class="answer">
-        You should check each symbol with <a target="_blank" href="https://docs.python.org/3/library/curses.ascii.html#curses.ascii.isalpha">isalpha()</a> function.
+        You should check each symbol with <a target="_blank" href="https://docs.python.org/3/library/curses.ascii.html#curses.ascii.isalpha">str.isalpha()</a> function.
         Besides, I offer you to use <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#sets">set()</a> on text inside
         dict comprehension to iterate only over unique symbols:
         <br>

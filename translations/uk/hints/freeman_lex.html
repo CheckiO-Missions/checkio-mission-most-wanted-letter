@@ -12,7 +12,7 @@
 </div>
 <div class="question-answer">
     <div class="question">
-        З якого інструменту Python я повинен розпочати, щоб втілити цю ідею
+        З якого інструменту Python я маю розпочати, щоб втілити цю ідею
         в код?
     </div>
     <div class="answer">
@@ -51,8 +51,8 @@ print(mass) # {"h": 1, "l": 2, "o": 1, "e": 1, "!": 1}
         Добре, але як створити такий словник?
     </div>
     <div class="answer">
-        Ти повинен використати генератор словника, про який згадується у посиланні.
-        Крім того, тобі знадобиться метод рядків <a target="_blank" href="https://www.w3schools.com/python/ref_string_count.asp">count()</a>:
+        Ти маєш використати генератор словника, про який згадується у посиланні.
+        Крім того, тобі знадобиться метод рядків <a target="_blank" href="https://www.w3schools.com/python/ref_string_count.asp">str.count()</a>:
         <br>
         <br>
         <pre class="brush: python">
@@ -69,7 +69,7 @@ print(mass) # {"h": 1, "l": 2, "o": 1, "e": 1, "!": 1}
         Як їх не враховувати в моєму словнику?
     </div>
     <div class="answer">
-        Ти повинен перевірити кожен символ з допомогою функції <a target="_blank" href="https://docs.python.org/3/library/curses.ascii.html#curses.ascii.isalpha">isalpha()</a>.
+        Ти маєш перевірити кожен символ з допомогою функції <a target="_blank" href="https://docs.python.org/3/library/curses.ascii.html#curses.ascii.isalpha">str.isalpha()</a>.
         Крім того, я пропоную тобі використати <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#sets">set()</a> для text всередині
         генератора словника, що проходити лише по унікальних символах:
         <br>
@@ -115,9 +115,8 @@ print(freq) # 2
         <pre class="brush: python">
 k for k, v in mass.items() if v == freq
         </pre>
-        У випадку, якщо ти маєш декілька літер з максимальною частотою,
-        ти повинен передати цей вираз у функцію min() для отримання
-        алфавітно найменшої літери.
+        У випадку, якщо ти маєш декілька літер з максимальною частотою - передавай
+        цей вираз у функцію min() для отримання алфавітно найменшої літери.
         <br>
         <br>
         <pre class="brush: python">
@@ -130,7 +129,7 @@ let = min(k for k, v in mass.items() if v == freq)
         То яким має бути мій остаточний розв'язок?
     </div>
     <div class="answer">
-        Щоб отримати фінальний розв'язок, ти повинен об'єднати весь код разом,
+        Щоб отримати фінальний розв'язок, ти маєш об'єднати весь код разом,
         проголосити функцію і повернути твою найбільш уживану літеру.
 <br>
 <br>
@@ -153,7 +152,7 @@ def checkio(text: str) -> str:
 checkio=lambda t:max('abcdefghijklmnopqrstuvwxyz',key=t.lower().count)
         </pre>
         Проходячи по всіх малих літерах, знаходиться значення функції для кожної,
-        беруться літери з найбільший значенням з допомогою функції max(),
+        беруться літери з найбільшим значенням з допомогою функції max(),
         яка також повертає меншу (лівішу) літеру у випадку декількох з
         однаковою частотою.
 <br>
