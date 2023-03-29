@@ -176,6 +176,7 @@ let = min(k for k, v in mass.items() if v == freq)
         <p>
             To get final solution you should join all above code together, declare the function itself and return your most wanted letter.
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def checkio(text: str) -> str:
 
@@ -186,18 +187,22 @@ def checkio(text: str) -> str:
 
     return let
         </pre>
+        </div>
         <p>
             I hope, you don't think that it is the only way to solve this mission! There are a lot of interesting ideas you be able to see after your solution passes all tests successfully. For example:
         </p>
         <p>
             Iterating over all lowercase letters, finding value of function for each, taking letters with maximum value with max() which is also takes smaller (lefter) letter in case of few with equal frequency.
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 checkio = lambda t: max('abcdefghijklmnopqrstuvwxyz', key=t.lower().count)
         </pre>
+        </div>
         <p>
            You solution may be changed in such a way. Tricky idea with iterating over the letter-frequency tuples and finding value of function for each, function with double sorting - reversed by frequency first and then - if equal - normal by letter second. Taking minimum means alphabetically smaller letter and its frequency. Since we don't need frequency anymore we may replace in with "_" and return only letter.  
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def checkio(text: str) -> str:
 
@@ -207,6 +212,7 @@ def checkio(text: str) -> str:
 
     return let
         </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
