@@ -2,45 +2,50 @@
     <img src="{{MEDIA}}title.png" style="max-height: 350px">
 </div>
 <p>
-Dans un texte en anglais, qui contient des lettres et des signes de ponctuation, il faut déterminer la lettre la plus
-fréquente. La lettre renvoyée doit être en casse minuscule.<br>
-Dans cette recherche, la casse n'a pas d'importance. On considère par exemple, pour compter le nombre de "a", que
-"A"&nbsp;==&nbsp;"a".
-Assurez vous de ne compter ni les signes de ponctuation, ni les chiffres, ni les espaces : uniquement les lettres.
+    On vous donne un texte qui contient différentes lettres anglaises et des symboles de ponctuation.
+    Vous devez trouver la lettre la plus fréquente dans le texte. La lettre trouvée doit être en minuscules.<br>
+    Lors de la recherche de la lettre la plus fréquente, la casse n'a pas d'importance, donc pour les besoins de votre recherche,
+    "A" == "a".
+    Veillez à ne pas compter les symboles de ponctuation, les chiffres et les espaces blancs, mais uniquement les lettres.
 </p>
 <p>
-Si <strong>deux lettres ou plus apparaissent à la même fréquence</strong>, il faut renvoyer la lettre qui est classée la 
-première par ordre alphabétique .
+    Si vous avez <strong>deux lettres ou plus avec la même fréquence</strong>,
+    renvoyez la lettre qui vient en premier dans l'alphabet latin.
+    Par exemple -- "un" contient "o", "n", "e" une seule fois pour chacun, nous choisissons donc "e".
+</p>
 
-Par exemple -- "one" contient "o", "n", "e" une fois chacun, donc on choisit de renvoyer "e".
-</p>
+
 <p>
-<strong>Input: </strong> Un texte à analyser comme chaîne de caractères .
+   <strong>Entrée:</strong> Un texte à analyser sous la forme d'une <span>chaîne de caractères</span> <span>(string)</span>.
 </p>
+
 <p>
-<strong>Output: </strong> La lettre la plus fréquente en minuscule (str).
+   <strong>Sortie:</strong> La lettre la plus fréquente en minuscule sous la forme d'une <span>chaîne</span> <span>(string)</span>.
 </p>
+
 <div class="for_info_only">
-<p>
-<strong>Example:</strong>
-</p>
-
+    <p>
+        <strong>Exemples:</strong>
+    </p>
 <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </div>
+
 <p class="for_info_only">
-<strong>Utilisation: </strong>
-Dans tous les travaux de décryptage, il faut connaître la fréquence d'apparition des lettres dans une portion de texte.
-Par exemple: on peut facilement décoder un codage par décalage ou substitution si l'on connaît la fréquence 
-d'apparition des lettres. Ce sont des thèmes qui intéressent les experts en linguistique !
+   <strong>Comment l'utiliser:</strong>
+    Pour la plupart des tâches de décryptage, vous devez connaître la fréquence d'apparition des différentes lettres dans une section de texte.
+    Par exemple: nous pouvons facilement déchiffrer un simple code d'addition ou de substitution si nous connaissons la fréquence d'apparition des lettres.
+    Voilà qui est intéressant pour les experts en langues!
 </p>
-<p><strong>Précondition</strong>:<br>
-Le texte ne contient que des symboles ASCII.<br>
-0 &lt; len(text) &le; 10<sup>5</sup>
+
+
+<p><strong>Condition préalable</strong>:<br>
+    Un texte ne contient que des symboles ASCII.<br>
+    0 &lt; len(texte) &le;<sup>105</sup>
 </p>
 
 <!--
 <p class="for_info_only">
-<strong>Utilisation de  TryIt: </strong><br>
-<iframe width="560" height="315" src="//www.youtube.com/embed/yJUA5qN898E" frameborder="0" allowfullscreen></iframe>
+    <strong>How to use TryIt: </strong><br>
+    <iframe width="560" height="315" src="//www.youtube.com/embed/yJUA5qN898E" frameborder="0" allowfullscreen></iframe>
 </p>
 -->

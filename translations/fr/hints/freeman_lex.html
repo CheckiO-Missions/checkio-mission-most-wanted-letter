@@ -1,0 +1,230 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Je n'ai aucune idée de la manière de commencer à résoudre cette mission.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            💡 L'idée que je vous propose est de créer une sorte de carte avec les lettres et leur fréquence dans la chaîne. Dans une telle carte, vous pouvez trouver la lettre la plus fréquente et choisir alphabétiquement la plus petite parmi quelques lettres si nécessaire.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Quel instrument de Python dois-je utiliser pour mettre en œuvre cette idée dans le code?
+        en code?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Puisque la casse n'a pas d'importance ("A" == "a"), vous devriez faire en sorte que tout le texte soit composé d'une seule lettre. Avec <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#str.lower">str.lower()</a>, vous mettez les lettres en minuscules.
+        </p>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+print(text)
+        </pre>
+        <div class="output">
+            <p>Résultat:</p>
+            <pre>
+"hello!"        
+            </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Toutes les lettres prennent la même casse. Quel type de carte dois-je utiliser
+        pour stocker les lettres et leur fréquence?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Pour ce faire, vous pouvez utiliser <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">dictionary</a>. <b>Read this article attentively, you will find there almost all info to solve this mission.</b> Pour notre exemple "Hello!", ce dictionnaire (type de données non ordonné) peut ressembler à ceci:
+        </p>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = ...
+print(mass)
+        </pre>
+        <div class="output">
+            <p>Sortie:</p>
+            <pre>
+{"h": 1, "l": 2, "o": 1, "e": 1, "!": 1}        
+            </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ok. Mais comment créer un tel dictionnaire?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Vous devriez utiliser la compréhension des dictées à partir du lien ci-dessus. En outre, vous aurez besoin de
+        la méthode string <a target="_blank" href="https://www.w3schools.com/python/ref_string_count.asp">str.count()</a>:
+        </p>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = {l: text.count(l) for l in text}
+print(mass)
+        </pre> 
+        <div class="output">
+            <p>Sortie:</p>
+            <pre>
+{"h": 1, "l": 2, "o": 1, "e": 1, "!": 1}
+            </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Je vois. Mais la chaîne en mission contient des symboles de ponctuation dont je n'ai pas besoin.
+        Comment ne pas les prendre en compte dans mon dictionnaire? 
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Vous devriez vérifier chaque symbole avec la fonction <a target="_blank" href="https://docs.python.org/3/library/curses.ascii.html#curses.ascii.isalpha">str.isalpha()</a>. En outre, je vous propose d'utiliser <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#sets">set()</a> sur le texte à l'intérieur de la compréhension du dict pour itérer uniquement sur les symboles uniques:
+        </p>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+print(mass)
+        </pre>
+        <div class="output">
+            <p>Résultat:</p>
+            <pre>
+{"h": 1, "l": 2, "o": 1, "e": 1}
+            </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Je ne comprends toujours pas comment procéder. J'ai besoin d'un indice.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            L'étape suivante consiste à trouver le nombre maximum de valeurs dans le dictionnaire.
+            Il s'agit de votre fréquence maximale. Pour ce faire, utilisez la fonction <b class="code">max()</b> et la méthode <b class="code">dict.values()</b>:
+        </p>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+print(mass)
+        </pre>
+        <div class="output">
+            <p>Résultat:</p>
+            <pre>
+{"h": 1, "l": 2, "o": 1, "e": 1}
+            </pre>
+        </div>
+        <pre class="brush: python">
+freq = max(mass.values())
+print(freq)      
+        </pre>
+        <div class="output">
+            <p>Résultat: Résultat: Résultat: Résultat: Résultat: Résultat: Résultat: Résultat: Résultat: Résultat: Résultat: Résultat:</p>
+            <pre>
+2
+            </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Je sens, je suis proche, mais comment trouver la lettre avec cette fréquence?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Pour cette étape, vous avez besoin de la méthode <b class="code">dict.items()</b> pour obtenir des tuples de fréquence de lettres à partir du dictionnaire. Ensuite, en itérant sur ces tuples, vous obtiendrez les lettres dont la fréquence est égale à la fréquence maximale. La compréhension pour trouver toutes les lettres avec la fréquence maximale est la suivante:
+        </p>
+        <pre class="brush: python">
+k for k, v in mass.items() if v == freq
+        </pre>
+        <p>
+            Si vous avez plus d'une lettre avec la fréquence maximale, vous devez intégrer cette compréhension dans la fonction <b class="code">min()</b> pour obtenir la lettre alphabétiquement la plus petite.
+        </p>
+        <pre class="brush: python">
+let = min(k for k, v in mass.items() if v == freq)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            À quoi devrait ressembler ma solution finale?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Pour obtenir la solution finale, vous devez réunir tous les codes ci-dessus, déclarer la fonction elle-même et renvoyer la lettre que vous souhaitez le plus.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(text: str) -> str:
+
+    text = text.lower()
+    mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+    freq = max(mass.values())
+    let = min(k for k, v in mass.items() if v == freq)
+
+    return let
+        </pre>
+        </div>
+        <p>
+            J'espère que vous ne pensez pas que c'est la seule façon de résoudre cette mission! Il y a beaucoup d'idées intéressantes que vous pourrez découvrir une fois que votre solution aura passé tous les tests avec succès. Par exemple:
+        </p>
+        <p>
+            Itérer sur toutes les lettres minuscules, trouver la valeur de la fonction pour chacune d'entre elles, prendre les lettres avec la valeur maximale avec max() qui prend également la lettre la plus petite (la plus petite) dans le cas où il y en a plusieurs avec une fréquence égale.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+checkio = lambda t: max('abcdefghijklmnopqrstuvwxyz', key=t.lower().count)
+        </pre>
+        </div>
+        <p>
+           Votre solution peut être modifiée de cette manière. L'idée astucieuse est d'itérer sur les tuples de fréquence de lettres et de trouver la valeur de la fonction pour chacun d'entre eux, une fonction avec un double tri - inversé par fréquence d'abord, puis - s'il est égal - normal par lettre ensuite. En prenant le minimum, on obtient la plus petite lettre de l'alphabet et sa fréquence. Comme nous n'avons plus besoin de la fréquence, nous pouvons la remplacer par "_" et ne renvoyer que la lettre.  
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(text: str) -> str:
+
+    text = text.lower()
+    mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+    let, _ = min(mass.items(), key = lambda i: (-i[1], i[0]))
+
+    return let
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Wow, merci! Je sais et je comprends mieux! Tout fonctionne bien!
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            👍 Heureux de l'entendre!
+        </p>
+    </div>
+</div>
+&lt;/body
