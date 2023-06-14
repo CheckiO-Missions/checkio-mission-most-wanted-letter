@@ -2,24 +2,25 @@
     <img src="{{MEDIA}}title.png" style="max-height: 350px">
 </div>
 <p>
-    Otrzymujesz tekst, który zawiera różne angielskie litery i symbole interpunkcyjne.
-    Powinieneś znaleźć najczęściej powtarzającą się literę w tekście. Zwrócona litera musi być mała.<br>
-    Podczas poszukiwań rozwiązania wielkość liter nie ma znaczenia i można założyć, że "A"&nbsp;==&nbsp;"a".
-    Upewnij się, że nie zliczasz symboli interpunkcyjnych, cyfr ani białych znaków, tylko litery.
+    Otrzymują Państwo tekst zawierający różne angielskie litery i znaki interpunkcyjne.
+    Proszę znaleźć najczęściej występującą literę w tekście. Zwrócona litera musi być mała.<br>
+    Podczas sprawdzania najbardziej poszukiwanej litery, wielkość liter nie ma znaczenia, więc dla celów wyszukiwania,
+    "A" == "a".
+    Proszę upewnić się, że nie są liczone symbole interpunkcyjne, cyfry i białe znaki, a jedynie litery.
 </p>
 <p>
-    Jeśli otrzymasz <strong>dwie lub więcej liter występujących równie często</strong>,
-    zwróć wtedy literę, która występuje pierwsza w alfabecie łacińskim.
-    Przykład -- "one" zawiera "o", "n", "e" każdą literę tylko raz, zatem wybieramy "e".
+    Jeśli mają Państwo <strong>dwie lub więcej liter o tej samej częstotliwości</strong>,
+    proszę zwrócić literę, która jest pierwsza w alfabecie łacińskim.
+    Na przykład - "one" zawiera litery "o", "n", "e" tylko raz dla każdej z nich, dlatego wybieramy "e".
 </p>
 
 
 <p>
-    <strong>Input: </strong> Tekst do analizy jako string.
+   <strong>Dane wejściowe:</strong> Tekst do analizy jako ciąg znaków <span>(str{% if is_js %}ing{% endif %})</span>.
 </p>
 
 <p>
-    <strong>Output: </strong> Najczęściej występująca litera jako mała litera i jako string.
+   <strong>Dane wyjściowe:</strong> Najczęściej występująca mała litera jako ciąg znaków <span>(str{% if is_js %}ing{% endif %})</span>.
 </p>
 
 <div class="for_info_only">
@@ -30,21 +31,21 @@
 </div>
 
 <p class="for_info_only">
-    <strong>Do czego to może być przydatne: </strong>
-    W przypadku większości zadań polegających na odszyfrowaniu tekstu powinieneś znać częstotliwość występowania liter w tekście.
-    Na przykład: możemy łatwo złamać prosty szyfr przestawieniowy lub podstawieniowy, jeśli znamy częstotliwość występowania każdej z liter.
-    To są interesujące rzeczy dla lingwistów!
+   <strong>Jak jest używany:</strong>
+    Do większości zadań deszyfrowania potrzebna jest znajomość częstotliwości występowania różnych liter we fragmencie tekstu.
+    Na przykład: możemy łatwo złamać prosty szyfr dodawania lub podstawiania, jeśli znamy częstotliwość występowania liter.
+    To interesująca wiedza dla ekspertów językowych!
 </p>
 
 
-<p><strong>Założenia</strong>:<br>
-    Tekst zawierający wyłącznie symbole ASCII.<br>
-    0 &lt; len(text) &le; 10<sup>5</sup>
+<p><strong>Warunek wstępny</strong>:<br>
+    Tekst zawiera tylko symbole ASCII.<br>
+    0 &lt; len(text) &le;<sup>105</sup>
 </p>
 
 <!--
 <p class="for_info_only">
-    <strong>Jak użyć TryIt: </strong><br>
+    <strong>How to use TryIt: </strong><br>
     <iframe width="560" height="315" src="//www.youtube.com/embed/yJUA5qN898E" frameborder="0" allowfullscreen></iframe>
 </p>
 -->
