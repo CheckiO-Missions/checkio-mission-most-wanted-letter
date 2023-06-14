@@ -1,0 +1,231 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Nie mam pojęcia, jak zacząć rozwiązywać tę misję.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            pomysł, który Panu proponuję, polega na stworzeniu pewnego rodzaju mapy z literami i ich częstotliwością występowania w ciągu. Na takiej mapie można znaleźć najczęściej występującą literę i w razie potrzeby wybrać alfabetycznie mniejszą literę spośród kilku.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Od jakiego narzędzia Pythona powinienem zacząć, aby zaimplementować ten pomysł
+        do kodu?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Ponieważ wielkość liter nie ma znaczenia ("A" == "a"), powinien Pan zmienić wielkość liter w całym tekście. Z <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#str.lower">str.lower()</a> robi Pan małe litery.
+        </p>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+print(text)
+        </pre>
+        <div class="output">
+            <p>Wynik:</p>
+            <pre>
+"hello!"        
+            </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Wszystkie litery mają tę samą wielkość. Jakiego rodzaju mapy powinienem użyć
+        do przechowywania liter i ich częstotliwości?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            W tym celu mogą Państwo użyć <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">dictionary</a>. <b>Read this article attentively, you will find there almost all info to solve this mission.</b> Dla naszego przykładu "Hello!" ten słownik (nieuporządkowany typ danych) może wyglądać następująco:
+        </p>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = ...
+print(mass)
+        </pre>
+        <div class="output">
+            <p>Wyjście:</p>
+            <pre>
+{"h": 1, "l": 2, "o": 1, "e": 1, "!": 1}        
+            </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ok. Ale jak stworzyć taki słownik?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Proszę użyć dict comprehension z linku powyżej. Poza tym będzie Pan potrzebował
+        metoda string <a target="_blank" href="https://www.w3schools.com/python/ref_string_count.asp">str.count()</a>:
+        </p>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = {l: text.count(l) for l in text}
+print(mass)
+        </pre> 
+        <div class="output">
+            <p>Output:</p>
+            <pre>
+{"h": 1, "l": 2, "o": 1, "e": 1, "!": 1}
+            </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Rozumiem. Ale ciąg w misji zawiera symbole interpunkcyjne, których nie potrzebuję.
+        Jak nie uwzględniać ich w słowniku? 
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Proszę sprawdzić każdy symbol za pomocą funkcji <a target="_blank" href="https://docs.python.org/3/library/curses.ascii.html#curses.ascii.isalpha">str.isalpha()</a>. Poza tym, proponuję użyć <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#sets">set()</a> na tekście wewnątrz dict comprehension, aby iterować tylko po unikalnych symbolach:
+        </p>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+print(mass)
+        </pre>
+        <div class="output">
+            <p>Wyjście:</p>
+            <pre>
+{"h": 1, "l": 2, "o": 1, "e": 1}
+            </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Nadal nie rozumiem, jak postępować. Proszę o podpowiedź.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Następnym krokiem jest znalezienie maksymalnej liczby w wartościach słownika.
+            Jest to Państwa maksymalna częstotliwość. Proszę to zrobić za pomocą funkcji <b class="code">max()</b> i metody <b class="code">dict.values()</b>:
+        </p>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+print(mass)
+        </pre>
+        <div class="output">
+            <p>Wyjście:</p>
+            <pre>
+{"h": 1, "l": 2, "o": 1, "e": 1}
+            </pre>
+        </div>
+        <pre class="brush: python">
+freq = max(mass.values())
+print(freq)      
+        </pre>
+        <div class="output">
+            <p>Wyjście:</p>
+            <pre>
+2
+            </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Czuję, że jestem blisko, ale jak znaleźć literę z tą częstotliwością?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            W tym celu proszę użyć metody <b class="code">dict.items()</b>, aby uzyskać krotki o częstotliwości liter ze słownika. Następnie iterując po tych krotkach, proszę znaleźć literę(y), dla których częstotliwość jest równa maksymalnej częstotliwości. A zrozumienie, aby znaleźć wszystkie litery z maksymalną częstotliwością to:
+        </p>
+        <pre class="brush: python">
+k for k, v in mass.items() if v == freq
+        </pre>
+        <p>
+            W przypadku, gdy mają Państwo więcej niż jedną literę z maksymalną częstotliwością, należy zawinąć to rozumienie wewnątrz funkcji <b class="code">min()</b>, aby uzyskać alfabetycznie mniejszą literę.
+        </p>
+        <pre class="brush: python">
+let = min(k for k, v in mass.items() if v == freq)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Jak powinno wyglądać moje ostateczne rozwiązanie?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Aby uzyskać ostateczne rozwiązanie, należy połączyć cały powyższy kod, zadeklarować samą funkcję i zwrócić najbardziej pożądaną literę.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(text: str) -> str:
+
+    text = text.lower()
+    mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+    freq = max(mass.values())
+    let = min(k for k, v in mass.items() if v == freq)
+
+    return let
+        </pre>
+        </div>
+        <p>
+            Mam nadzieję, że nie myślą Państwo, że jest to jedyny sposób na rozwiązanie tej misji! Istnieje wiele interesujących pomysłów, które można zobaczyć po pomyślnym przejściu wszystkich testów. Na przykład:
+        </p>
+        <p>
+            Iterowanie po wszystkich małych literach, znajdowanie wartości funkcji dla każdej z nich, pobieranie liter o maksymalnej wartości za pomocą funkcji max(), która pobiera również mniejszą (mniejszą) literę w przypadku kilku liter o równej częstotliwości.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+checkio = lambda t: max('abcdefghijklmnopqrstuvwxyz', key=t.lower().count)
+        </pre>
+        </div>
+        <p>
+           Pana rozwiązanie może zostać zmienione w taki sposób. Trudny pomysł z iterowaniem po krotkach literowo-częstotliwościowych i znajdowaniem wartości funkcji dla każdej z nich, funkcja z podwójnym sortowaniem - najpierw odwrócona według częstotliwości, a następnie - jeśli równa - normalna według litery. Minimum oznacza alfabetycznie mniejszą literę i jej częstotliwość. Ponieważ nie potrzebujemy już częstotliwości, możemy zastąpić "_" i zwrócić tylko literę.  
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(text: str) -> str:
+
+    text = text.lower()
+    mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+    let, _ = min(mass.items(), key = lambda i: (-i[1], i[0]))
+
+    return let
+        </pre>
+        </div>
+    </div>
+    <p>Proszę kliknąć <b>Best Solutions</b> w menu misji i zobaczyć wiele innych ciekawych rozwiązań!</p>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Wow, dzięki! Wiem i rozumiem więcej! Wszystko działa dobrze!
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            miło mi to słyszeć!
+        </p>
+    </div>
+</div>
+&lt;/body
