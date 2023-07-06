@@ -1,0 +1,225 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>
+            我不知道如何开始解决这个任务。
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            我提供给你的想法是，用字母和它们在字符串中的频率创建某种地图。在这样的地图中，你可以找到最频繁的字母，并在必要时在几个字母中选择按字母顺序排列的小字母。
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            我应该从哪个Python工具入手来实现这个想法
+        变成代码？
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            由于大小写并不重要（"A"=="a"），你应该使整个文本为一个字母大小写。通过<a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#str.lower">str.lower()</a> ，你让字母变成小写。
+        </p>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+print(text)
+        </pre>
+        <div class="output">
+            <p>输出：</p>
+            <pre>
+"hello!"</pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            所有字母都变成相同的大小写。我应该用什么样的地图
+        来存储字母和它们的频率？
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            为此，你可以使用<a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">dictionary</a> 。仔细阅读这篇文章，你会发现几乎所有解决这个问题的信息。对于我们的例子 "Hello!"，这个字典（无序数据类型）可能看起来像：
+        </p>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = ...
+print(mass)
+        </pre>
+        <div class="output">
+            <p>输出：</p>
+            <pre>
+{"h": 1, "l": 2, "o": 1, "e": 1, "!": 1}</pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            好的。但如何创建这样的字典？
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            你应该使用上面链接中的dict comprehension。此外，你还需要
+        string<a target="_blank" href="https://www.w3schools.com/python/ref_string_count.asp">str.count()</a> 方法：
+        </p>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = {l: text.count(l) for l in text}
+print(mass)
+        </pre> 
+        <div class="output">
+            <p>输出：</p>
+            <pre>
+{"h": 1, "l": 2, "o": 1, "e": 1, "!": 1}</pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            我明白了。但任务中的字符串包括我不需要的标点符号。
+        如何不在我的字典中考虑它们？ 
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            你应该用<a target="_blank" href="https://docs.python.org/3/library/curses.ascii.html#curses.ascii.isalpha">str.isalpha()</a> 函数检查每个符号。此外，我建议你在dict理解中的文本上使用<a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#sets">set()</a> ，只对唯一的符号进行遍历：
+        </p>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+print(mass)
+        </pre>
+        <div class="output">
+            <p>输出：</p>
+            <pre>
+{"h": 1, "l": 2, "o": 1, "e": 1}</pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            我还是不明白该如何进行。我需要一个提示。
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            你的下一步是找到字典中的最大数字。
+            它是你的最大频率。用<b class="code">max()</b> 函数和<b class="code">dict.values()</b> 方法来做：
+        </p>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+print(mass)
+        </pre>
+        <div class="output">
+            <p>输出：</p>
+            <pre>
+{"h": 1, "l": 2, "o": 1, "e": 1}</pre>
+        </div>
+        <pre class="brush: python">
+freq = max(mass.values())
+print(freq)      
+        </pre>
+        <div class="output">
+            <p>输出：</p>
+            <pre>
+2</pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            我觉得，我很接近，但如何找到这个频率的字母？
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            对于这一步，你需要<b class="code">dict.items()</b> ，从字典中获得字母频率的图元。然后在这些图元上进行迭代，得到频率等于最大频率的字母。找到所有具有最大频率的字母的理解方法是：
+        </p>
+        <pre class="brush: python">
+k for k, v in mass.items() if v == freq
+        </pre>
+        <p>
+            如果你有一个以上的最大频率的字母，你应该把这个理解包在<b class="code">min()</b> 函数中，以获得按字母顺序较小的字母。
+        </p>
+        <pre class="brush: python">
+let = min(k for k, v in mass.items() if v == freq)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            那么，我的最终解决方案应该是什么样子的呢？
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            为了得到最终的解决方案，你应该把上述所有的代码连接起来，声明函数本身，并返回你最想要的字母。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(text: str) -> str:
+
+    text = text.lower()
+    mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+    freq = max(mass.values())
+    let = min(k for k, v in mass.items() if v == freq)
+
+    return let
+        </pre>
+        </div>
+        <p>
+            我希望，你不要认为这是解决这个任务的唯一方法！在你的解决方案成功通过所有测试后，你可以看到很多有趣的想法！在你的解决方案成功通过所有测试后，你将会看到很多有趣的想法。比如说：
+        </p>
+        <p>
+            遍历所有小写字母，找到每个字母的函数值，用max()取最大值的字母，这也是在几个频率相同的情况下取较小（较小）的字母。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+checkio = lambda t: max('abcdefghijklmnopqrstuvwxyz', key=t.lower().count)
+        </pre>
+        </div>
+        <p>
+           你的解决方案可以用这种方式来改变。棘手的想法是迭代字母频率图组并为每个图组找到函数值，函数具有双重排序--首先按频率反转，然后--如果相等--其次按字母正常。取最小值意味着按字母顺序较小的字母和它的频率。由于我们不再需要频率，我们可以用"_"代替，只返回字母。  
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(text: str) -> str:
+
+    text = text.lower()
+    mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+    let, _ = min(mass.items(), key = lambda i: (-i[1], i[0]))
+
+    return let
+        </pre>
+        </div>
+        <p>点击任务菜单中的<b>Best Solutions</b> ，可以看到很多其他有趣的解决方案!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            哇，谢谢!我知道了，也更明白了!一切运作正常
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            👍很高兴听到这个消息!
+        </p>
+    </div>
+</div>
+&lt;/body
