@@ -2,55 +2,53 @@
     <img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
 </div>
 <p>
-    Du bekommst einen Text, der unterschiedliche englische Buchstaben und Satzzeichen enth&auml;lt.
-    Finde den Buchstaben, der am h&auml;ufigsten vorkommt. Der Buchstabe soll als Kleinbuchstabe zur&uuml;ck gegeben werden.<br>
-    Beim Pr&uuml;fen des am h&auml;ufigsten vorkommenden Buchstaben spielt Gro&szlig;-/Kleinschreibung keine Rolle. Es gilt:
-    "A"&nbsp;==&nbsp;"a".
-    Z&auml;hle nur Buchstaben, keine Satzzeichen, Ziffern oder Leerzeichen. 
+    Sie erhalten einen Text, der verschiedene englische Buchstaben und Interpunktionszeichen enthält.
+    Sie sollen den am häufigsten vorkommenden Buchstaben im Text finden. Der gefundene Buchstabe muss klein geschrieben sein.<br>
+    Bei der Suche nach dem am häufigsten vorkommenden Buchstaben spielt die Groß-/Kleinschreibung keine Rolle, d.h. für den Zweck Ihrer Suche,
+    "A" == "a".
+    Achten Sie darauf, dass Sie Interpunktionszeichen, Ziffern und Leerzeichen nicht mitzählen, sondern nur Buchstaben.
 </p>
 <p style="text-align: center;">
     <img  title="example" src="{{MEDIA}}most-common-letter.png" alt="example" style="max-height: 300px"/>
 </p>
 <p>
-    Wenn du <strong>zwei oder mehr Buchstaben mit der gleichen H&auml;ufigkeit</strong> hast,
-    gib nur denjenigen zur&uuml;ck, der im Alphabet zuerst kommt.
-    Zum Beispiel -- "one" enth&auml;lt "o", "n", "e" jeweils einmal, also geben wir "e" zur&uuml;ck.
+    Wenn Sie <strong>zwei oder mehr Buchstaben mit der gleichen Häufigkeit</strong> haben,
+    dann geben Sie den Buchstaben zurück, der im lateinischen Alphabet an erster Stelle steht.
+    Zum Beispiel -- <span>"one"</span> enthält "o", "n", "e" nur je einmal, also wählen wir "e".
 </p>
 
 
 <p>
-    <strong>Eingabe: </strong> Ein Text zur Analyse als String.
+   <strong>Eingabe:</strong> Ein Text zur Analyse als Zeichenkette <span>(str{% if is_js %}ing{% endif %})</span>.
 </p>
 
 <p>
-    <strong>Ausgabe: </strong> Der am h&auml;ufigsten vorkommender Buchstabe als Kleinbuchstabe als string.
+   <strong>Ausgabe:</strong> Der häufigste Buchstabe in Kleinbuchstaben als Zeichenkette <span>(str{% if is_js %}ing{% endif %})</span>.
 </p>
 
 <div class="for_info_only">
     <p>
-        <strong>Beispiel:</strong>
+        <strong>Beispiele:</strong>
     </p>
-    
 <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </div>
 
 <p class="for_info_only">
-    <strong>Wozu ist das gut: </strong>
-    F&uuml;r viele Verschl&uuml;sselungsaufgaben ben&ouml;tigt man die H&auml;ufigkeit von verschiedenen Buchstaben in einem Textabschnitt.
-    Zum Beipiel k&ouml;nnen wir einfache Additionschiffre und Substitutionschiffre knacken, wenn wir wissen, wie h&auml;ufig welcher Buchstabe vorkommt.
-
-    F&uuml;r Sprachexperten ist das sehr interessant!
+   <strong>Wie es verwendet wird:</strong>
+    Für die meisten Entschlüsselungsaufgaben müssen Sie die Häufigkeit des Auftretens der verschiedenen Buchstaben in einem Textabschnitt kennen.
+    Ein Beispiel: Wir können eine einfache Additions- oder Substitutions-Chiffre leicht knacken, wenn wir die Häufigkeit kennen, mit der Buchstaben vorkommen.
+    Das ist ein interessanter Stoff für Sprachexperten!
 </p>
 
 
-<p><strong>Bedingung</strong>:<br>
-    Ein Text besteht nur aus ASCII Symbolen.<br>
-    0 &lt; len(text) &le; 10<sup>5</sup>
+<p><strong>Vorbedingung</strong>:<br>
+    Ein Text enthält nur ASCII-Symbole.<br>
+    0 &lt; len(Text) &le;<sup>105</sup>
 </p>
 
 <!--
 <p class="for_info_only">
-    <strong>Wie man TryIt verwendet: </strong><br>
+    <strong>How to use TryIt: </strong><br>
     <iframe width="560" height="315" src="//www.youtube.com/embed/yJUA5qN898E" frameborder="0" allowfullscreen></iframe>
 </p>
 -->
