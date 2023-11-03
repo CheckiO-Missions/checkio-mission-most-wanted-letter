@@ -1,0 +1,225 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ich habe keine Ahnung, wie ich mit der Lösung dieser Aufgabe beginnen soll.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            💡 Die Idee, die ich Ihnen vorschlage, ist, eine Art Karte mit Buchstaben und ihrer Häufigkeit in einer Zeichenkette zu erstellen. In einer solchen Karte können Sie den häufigsten Buchstaben finden und bei Bedarf einen alphabetisch kleineren Buchstaben auswählen.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Mit welchem Python-Instrument sollte ich beginnen, um diese Idee in Code umzusetzen
+        in Code umzusetzen?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Da die Groß- und Kleinschreibung keine Rolle spielt ("A" == "a"), sollten Sie den gesamten Text auf einen Buchstaben umstellen. Mit <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#str.lower">str.lower()</a> machen Sie Buchstaben zu Kleinbuchstaben.
+        </p>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+print(text)
+        </pre>
+        <div class="output">
+            <p>Ausgabe:</p>
+            <pre>
+"hello!"</pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Alle Buchstaben werden gleich groß geschrieben. Welche Art von Karte sollte ich verwenden
+        um Buchstaben und ihre Häufigkeit zu speichern?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Für diesen Zweck können Sie <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">dictionary</a> verwenden. Lesen Sie diesen Artikel aufmerksam durch, Sie werden dort fast alle Informationen zur Lösung dieser Aufgabe finden. Für unser Beispiel "Hallo!" könnte dieses Wörterbuch (ungeordneter Datentyp) wie folgt aussehen:
+        </p>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = ...
+print(mass)
+        </pre>
+        <div class="output">
+            <p>Ausgabe:</p>
+            <pre>
+{"h": 1, "l": 2, "o": 1, "e": 1, "!": 1}</pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ok. Aber wie erstellt man ein solches Wörterbuch?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Sie sollten das Diktatverständnis aus dem obigen Link verwenden. Außerdem benötigen Sie
+        string <a target="_blank" href="https://www.w3schools.com/python/ref_string_count.asp">str.count()</a> Methode:
+        </p>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = {l: text.count(l) for l in text}
+print(mass)
+        </pre> 
+        <div class="output">
+            <p>Ausgabe:</p>
+            <pre>
+{"h": 1, "l": 2, "o": 1, "e": 1, "!": 1}</pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ich verstehe. Aber die Zeichenkette in der Mission enthält Interpunktionssymbole, die ich nicht brauche.
+        Wie kann ich sie nicht in meinem Wörterbuch berücksichtigen? 
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Sie sollten jedes Symbol mit der Funktion <a target="_blank" href="https://docs.python.org/3/library/curses.ascii.html#curses.ascii.isalpha">str.isalpha()</a> überprüfen. Außerdem biete ich Ihnen an, <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#sets">set()</a> auf den Text in dict comprehension anzuwenden, um nur die eindeutigen Symbole zu durchsuchen:
+        </p>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+print(mass)
+        </pre>
+        <div class="output">
+            <p>Ausgabe:</p>
+            <pre>
+{"h": 1, "l": 2, "o": 1, "e": 1}</pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ich verstehe immer noch nicht, wie ich vorgehen soll. Ich brauche einen Hinweis.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Ihr nächster Schritt besteht darin, die maximale Anzahl der Werte im Wörterbuch zu ermitteln.
+            Das ist Ihre maximale Häufigkeit. Verwenden Sie dazu die Funktion <b class="code">max()</b> und die Methode <b class="code">dict.values()</b>:
+        </p>
+        <pre class="brush: python">
+text = "HelLo!"
+text = text.lower()
+mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+print(mass)
+        </pre>
+        <div class="output">
+            <p>Ausgabe:</p>
+            <pre>
+{"h": 1, "l": 2, "o": 1, "e": 1}</pre>
+        </div>
+        <pre class="brush: python">
+freq = max(mass.values())
+print(freq)      
+        </pre>
+        <div class="output">
+            <p>Ausgabe:</p>
+            <pre>
+2</pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ich glaube, ich bin nah dran, aber wie finde ich den Buchstaben mit dieser Frequenz?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Für diesen Schritt benötigen Sie die Methode <b class="code">dict.items()</b>, um Tupel mit der Buchstabenhäufigkeit aus dem Wörterbuch zu erhalten. Dann iterieren Sie über diese Tupel, um den oder die Buchstaben zu finden, deren Häufigkeit der maximalen Häufigkeit entspricht. Und das Verständnis, um alle Buchstaben mit der maximalen Häufigkeit zu finden, ist:
+        </p>
+        <pre class="brush: python">
+k for k, v in mass.items() if v == freq
+        </pre>
+        <p>
+            Falls Sie mehr als einen Buchstaben mit maximaler Häufigkeit haben, sollten Sie dieses Verständnis in die Funktion <b class="code">min()</b> einbinden, um alphabetisch kleinere Buchstaben zu erhalten.
+        </p>
+        <pre class="brush: python">
+let = min(k for k, v in mass.items() if v == freq)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Wie sollte also meine endgültige Lösung aussehen?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Um die endgültige Lösung zu erhalten, sollten Sie den gesamten obigen Code zusammenfügen, die Funktion selbst deklarieren und den gewünschten Buchstaben zurückgeben.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(text: str) -> str:
+
+    text = text.lower()
+    mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+    freq = max(mass.values())
+    let = min(k for k, v in mass.items() if v == freq)
+
+    return let
+        </pre>
+        </div>
+        <p>
+            Ich hoffe, Sie denken nicht, dass dies der einzige Weg ist, diese Aufgabe zu lösen! Es gibt eine Menge interessanter Ideen, die Sie sehen können, wenn Ihre Lösung alle Tests erfolgreich bestanden hat. Zum Beispiel:
+        </p>
+        <p>
+            Iteration über alle Kleinbuchstaben, Ermittlung des Funktionswerts für jeden einzelnen Buchstaben, Auswahl des Buchstabens mit dem höchsten Wert mit max(), wobei auch der kleinere (leichtere) Buchstabe genommen wird, wenn es nur wenige mit gleicher Häufigkeit gibt.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+checkio = lambda t: max('abcdefghijklmnopqrstuvwxyz', key=t.lower().count)
+        </pre>
+        </div>
+        <p>
+           Ihre Lösung kann auf diese Weise geändert werden. Knifflige Idee mit Iteration über die Buchstabenhäufigkeitstupel und Ermittlung des Funktionswerts für jedes, Funktion mit doppelter Sortierung - zuerst umgekehrt nach Häufigkeit und dann - bei Gleichheit - normal nach Buchstaben. Das Minimum bedeutet den alphabetisch kleineren Buchstaben und seine Häufigkeit. Da wir die Häufigkeit nicht mehr benötigen, können wir in durch "_" ersetzen und nur den Buchstaben zurückgeben.  
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(text: str) -> str:
+
+    text = text.lower()
+    mass = {l: text.count(l) for l in set(text) if l.isalpha()}
+    let, _ = min(mass.items(), key = lambda i: (-i[1], i[0]))
+
+    return let
+        </pre>
+        </div>
+        <p>Klicken Sie auf <b>Best Solutions</b> im Missionsmenü und sehen Sie sich viele andere interessante Lösungen an!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Wow, danke! Ich weiß und verstehe jetzt mehr! Alles funktioniert bestens!
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            👍 Freut mich zu hören!
+        </p>
+    </div>
+</div>
+&lt;/body
